@@ -3,5 +3,5 @@ from inicio.views import inicio, pedido
 
 urlpatterns = [
     path('', inicio),
-    path('pedido/', pedido),
+    path('pedido/<gusto>/<tamanio>', pedido),
 ]
