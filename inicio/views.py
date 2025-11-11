@@ -8,8 +8,8 @@ def pedido(request, gusto,tamanio):
 
     pizza = Pizza(gusto=gusto, tamanio=tamanio)
     pizza.save()
-    
-    return render(request, 'pedido.html')
+
+    return render(request, 'pedido.html',{'objeto_guardado':pizza})
 
 # Create your views here.
 
