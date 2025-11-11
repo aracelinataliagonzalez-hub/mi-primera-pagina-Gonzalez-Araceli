@@ -1,1 +1,10 @@
-{{listado_de_pizzas}}
+
+
+<ul>
+    {% for pizza in listado_de_pizzas %} 
+    <li>
+        {{pizza}}
+    </li>
+    {% endfor%}
+</ul>
+
