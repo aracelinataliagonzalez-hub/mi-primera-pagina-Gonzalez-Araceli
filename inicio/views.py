@@ -11,5 +11,12 @@ def pedido(request, gusto,tamanio):
 
     return render(request, 'pedido.html',{'objeto_guardado':pizza})
 
+def listado_pizzas(request):
+
+    pizzas = Pizza.objects.all() 
+
+    return render(request, 'listado_pizzas.html', {'listado_de_pizzas':pizzas})
+
+
 # Create your views here.
 
