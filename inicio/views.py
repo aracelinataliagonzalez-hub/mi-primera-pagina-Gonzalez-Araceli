@@ -26,6 +26,11 @@ def listado_pizzas(request):
 
     return render(request, 'listado_pizzas.html', {'listado_de_pizzas':pizzas})
 
+def ver_pedido(request, pizza_id):
+    pizza = Pizza.objects.get(id = pizza_id)
+    
+    return render(request, 'ver_pedido.html', {'pizza': pizza})
+
 
 # Create your views here.
 
