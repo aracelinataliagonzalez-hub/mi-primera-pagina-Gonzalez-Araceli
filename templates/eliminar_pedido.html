@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{%block title_head %}Eliminar Pedido{%endblock title_head%}
+
+{% block contenido %}
+   <form action={% url 'eliminar' pizza.id %} method="POST">
+      {%csrf_token%}
+
+      Confirma eliminar el pedido {{pizza}} ?
+      
+      <input type="submit" value="Confirmar">
+   </form>
+{% endblock contenido %}

@@ -4,7 +4,10 @@
    <ul>
         {% for pizza in listado_de_pizzas %} 
         <li>
-            {{pizza}} | <a href={% url 'ver' pizza.id %}>Ver</a> | <a href={% url 'modificar' pizza.id %}>Actualizar</a>
+            {{pizza}} 
+            | <a href={% url 'ver' pizza.id %}>Ver</a> 
+            | <a href={% url 'modificar' pizza.id %}>Actualizar</a>
+            | <a href={% url 'eliminar' pizza.id %}>Eliminar</a>
         </li>
         {% endfor%}
     </ul>
