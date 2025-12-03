@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from inicio.models import Pizza
 from inicio.forms import Pedido
+from django.views.generic.edit import UpdateView
+from django.urls import reverse_lazy
 
 def inicio(request):
     return render(request, 'inicio.html')
@@ -31,6 +33,13 @@ def ver_pedido(request, pizza_id):
     
     return render(request, 'ver_pedido.html', {'pizza': pizza})
 
+
+class ModificarPedido(UpdateView):
+    model = Pizza
+    template_name = 'modificar_pedido.html'
+    fields = '__all__'
+    success_url = reverse_lazy('listado_pizzas')
+    
 
 # Create your views here.
 
