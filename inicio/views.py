@@ -1,15 +1,24 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from inicio.models import Pizza
+from inicio.forms import Pedido
 
 def inicio(request):
     return render(request, 'inicio.html')
 
-def pedido(request, gusto,tamanio):
+def pedido(request):
+    pizza = None
+    if request.method == 'POST':
+        formulario = Pedido(request.POST)
+        if formulario.is_valid():
+            info = formulario.cleaned_data
 
-    pizza = Pizza(gusto=gusto, tamanio=tamanio)
-    pizza.save()
+            pizza = Pizza(gusto=info.get('gusto'), tamanio=info.get('tamanio'))
+            pizza.save()
+            return redirect('listado_pizzas')
+    else:
+        formulario = Pedido()
 
-    return render(request, 'pedido.html',{'objeto_guardado':pizza})
+    return render(request, 'pedido.html', {'formulario':formulario})
 
 def listado_pizzas(request):
 
