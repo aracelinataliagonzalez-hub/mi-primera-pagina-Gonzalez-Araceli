@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from inicio.models import Pizza
-from inicio.forms import Pedido
+from inicio.forms import Pedido, BuscarPizza
 from django.views.generic.edit import UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -23,10 +23,12 @@ def pedido(request):
     return render(request, 'pedido.html', {'formulario':formulario})
 
 def listado_pizzas(request):
+    formulario = BuscarPizza(request.GET)
+    if formulario.is_valid():
+        gusto_buscado = formulario.cleaned_data.get('gusto')
+        listado_pizza = Pizza.objects.filter(gusto__icontains = gusto_buscado)
 
-    pizzas = Pizza.objects.all() 
-
-    return render(request, 'listado_pizzas.html', {'listado_de_pizzas':pizzas})
+    return render(request, 'listado_pizzas.html', {'listado_de_pizzas':listado_pizza, 'formulario':formulario})
 
 def ver_pedido(request, pizza_id):
     pizza = Pizza.objects.get(id = pizza_id)

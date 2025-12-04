@@ -1,6 +1,11 @@
  {% extends "base.html" %}
 {%block title_head %}Listado Pizzas{%endblock title_head%}
 {% block contenido %}
+    <form action={% url 'listado_pizzas' %} method="get">
+        {{formulario}}
+        <input type="submit" value="Buscar">
+    </form>
+   {% if listado_de_pizzas%}
    <ul>
         {% for pizza in listado_de_pizzas %} 
         <li>
@@ -11,6 +16,9 @@
         </li>
         {% endfor%}
     </ul>
+    {% else %}
+    <p>No se encontraron pedidos</p>
+    {% endif %}
 {% endblock contenido %}
 
 
