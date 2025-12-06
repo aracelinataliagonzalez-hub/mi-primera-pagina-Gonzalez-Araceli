@@ -3,10 +3,13 @@ from inicio.models import Pizza
 from inicio.forms import Pedido, BuscarPizza
 from django.views.generic.edit import UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 def inicio(request):
     return render(request, 'inicio.html')
 
+@login_required
 def pedido(request):
     pizza = None
     if request.method == 'POST':
@@ -36,13 +39,13 @@ def ver_pedido(request, pizza_id):
     return render(request, 'ver_pedido.html', {'pizza': pizza})
 
 
-class ModificarPedido(UpdateView):
+class ModificarPedido(LoginRequiredMixin, UpdateView):
     model = Pizza
     template_name = 'modificar_pedido.html'
     fields = '__all__'
     success_url = reverse_lazy('listado_pizzas')
     
-class EliminarPedido(DeleteView):
+class EliminarPedido(LoginRequiredMixin, DeleteView):
     model = Pizza
     template_name = 'eliminar_pedido.html'
     success_url = reverse_lazy('listado_pizzas')

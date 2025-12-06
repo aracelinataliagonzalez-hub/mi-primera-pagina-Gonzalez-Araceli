@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login
 
-def login(request):
-    if reversed.method == 'POST':
+def iniciar_sesion(request):
+    if request.method == 'POST':
         formulario = AuthenticationForm(request, data = request.POST)
         if formulario.is_valid():
             usuario = formulario.get_user()
@@ -14,7 +14,7 @@ def login(request):
     else:
         formulario = AuthenticationForm()
    
-    return render(request, 'login.html', {'formulario': formulario})
+    return render(request, 'iniciar_sesion.html', {'formulario': formulario})
     
 
 # Create your views here.
