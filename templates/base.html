@@ -23,6 +23,7 @@
             </form>
         {%else%}
            <a href={% url 'iniciar_sesion' %}>Iniciar Sesion</a>
+           <a href={% url 'registro' %}>Registrarse</a>
         {%endif%}        
     <main>
         {% block contenido %}
