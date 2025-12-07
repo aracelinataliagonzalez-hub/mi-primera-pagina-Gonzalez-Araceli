@@ -7,5 +7,10 @@
     <li>
         Tamanio: {{pizza.tamanio}}
     </li>
+    {{% if pizza.imagen %}}
+       <li>
+           Imagen: <img src={{pizza.imagen.url}} alt="Imagen de lo Pizza" height="300px">
+       </li>
+    {{% endif %}}   
 </ul>
 {% endblock contenido %}

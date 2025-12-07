@@ -3,7 +3,7 @@
 
 {% block contenido %}
    <h1> Realice su pedido </h1>
-   <form action={% url 'pedido' %} method="POST">
+   <form action={% url 'pedido' %} method="POST" enctype="multipart/form-data">
       {%csrf_token%}
 
       {{formulario}}

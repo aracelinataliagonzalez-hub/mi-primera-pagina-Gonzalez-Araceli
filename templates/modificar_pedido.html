@@ -2,7 +2,7 @@
 {%block title_head %}Modificar Pedido{%endblock title_head%}
 
 {% block contenido %}
-   <form action={% url 'modificar' pizza.id %} method="POST">
+   <form action={% url 'modificar' pizza.id %} method="POST" enctype="multipart/form-data">
       {%csrf_token%}
 
       {{form}}

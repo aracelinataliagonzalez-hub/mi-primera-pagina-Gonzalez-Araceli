@@ -13,11 +13,11 @@ def inicio(request):
 def pedido(request):
     pizza = None
     if request.method == 'POST':
-        formulario = Pedido(request.POST)
+        formulario = Pedido(request.POST, request.FILES)
         if formulario.is_valid():
             info = formulario.cleaned_data
 
-            pizza = Pizza(gusto=info.get('gusto'), tamanio=info.get('tamanio'))
+            pizza = Pizza(gusto=info.get('gusto'), tamanio=info.get('tamanio'), imagen=info.get('imagen'))
             pizza.save()
             return redirect('listado_pizzas')
     else:
