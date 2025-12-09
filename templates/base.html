@@ -12,6 +12,7 @@
     
    <nav>
        <a href= {% url 'inicio' %}>Inicio</a>
+       <a href= {% url 'acerca_de_mi' %}>Acerca de Mi</a>
        <a href={% url 'pedido' %}>Pedidos</a>
        <a href={% url 'listado_pizzas' %}>Listado de Pedidos</a>
        {% if request.user.is_authenticated%}

@@ -49,6 +49,9 @@ class EliminarPedido(LoginRequiredMixin, DeleteView):
     model = Pizza
     template_name = 'eliminar_pedido.html'
     success_url = reverse_lazy('listado_pizzas')
+
+def acerca_de_mi(resquest):
+    return render(resquest, 'acerca_de_mi.html')    
     
 # Create your views here.
 
