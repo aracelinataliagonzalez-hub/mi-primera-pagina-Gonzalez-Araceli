@@ -87,6 +87,10 @@ Acceder a la aplicación desde un navegador web:
 
 http://127.0.0.1:8000/
 
+video de la pagina: 
+
+https://youtu.be/vKHuVgALcJw
+
 Objetivo Educativo
 
 Este trabajo práctico tiene como propósito:

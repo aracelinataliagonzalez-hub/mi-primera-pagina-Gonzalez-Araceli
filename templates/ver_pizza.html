@@ -7,10 +7,15 @@
     <li>
         Tamanio: {{pizza.tamanio}}
     </li>
-    {{% if pizza.imagen %}}
+    {% if pizza.precio %}
+       <li>
+           Precio: {{pizza.precio}}
+       </li>
+    {% endif %}  
+    {% if pizza.imagen %}
        <li>
            Imagen: <img src={{pizza.imagen.url}} alt="Imagen de lo Pizza" height="300px">
        </li>
-    {{% endif %}}   
+    {% endif %}  
 </ul>
 {% endblock contenido %}

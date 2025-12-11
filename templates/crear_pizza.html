@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{%block title_head %}Crear Pizza{%endblock title_head%}
+
+{% block contenido %}
+   <h1> Ingrese una nueva pizza </h1>
+   <form action={% url 'crear_pizza' %} method="POST" enctype="multipart/form-data">
+      {%csrf_token%}
+
+      {{formulario}}
+      
+      <input type="submit" value="Crear">
+   </form>
+{% endblock contenido %}
+
+
